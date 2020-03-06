@@ -1,5 +1,6 @@
 package com.company;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class Main {
    //       }
    //   }
 
-
-        new Descargar(modulos.get(0).getTemarioModulo().get(0).getUrlTemas(),"C:\\Users\\Wster\\Desktop\\Carpeta de pruebas").descargalo();
+        File file = new File("");
+        new Descargar(modulos.get(0).getTemarioModulo().get(0).getUrlTemas(),file.getAbsolutePath()).descargalo();
     }
 }
