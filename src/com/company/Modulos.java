@@ -1,9 +1,12 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Modulos {
 
     private String NombreModulo;
     private String UrlModulo;
+    private ArrayList<Modulos> Modulos;
 
     public Modulos(String nombreModulo, String urlModulo) {
         NombreModulo = nombreModulo;
