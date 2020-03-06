@@ -11,23 +11,26 @@ public class Main {
 	// write your code here
         LoginToScrap ltc = new LoginToScrap();
 
-        ArrayList<Modulos> modulos= ltc.almacenarTemarios();
-        System.out.println("Cantidad de modulos: "+modulos.size());
-        for (Modulos m : modulos) {
-            System.out.println("\t"+m.getNombreModulo()+"--->"+m.getUrlModulo());
-            for (int i = 0; i <m.getTemarioModulo().size() ; i++) {
-                System.out.println("\t\t\t\t"+
-                        m.getTemarioModulo().get(i).getNombreTemas()
-                +"----->" +m.getTemarioModulo().get(i).getUrlTemas());;
-            }
-            for (int i = 0; i <m.getPdfModulo().size() ; i++) {
-                System.out.println("\t\t\t\t"+
-                        m.getPdfModulo().get(i).getNombrePDF()
-                                +"----->" +m.getPdfModulo().get(i).getUrlPDF());;
-            }
-        }
+      ArrayList<Modulos> modulos= ltc.almacenarTemarios();
+   //
+   //   System.out.println("Cantidad de modulos: "+modulos.size());
+   //   System.out.println();
+   //   for (Modulos m : modulos) {
+   //       System.out.println();
+   //       System.out.println("\t"+m.getNombreModulo()+"--->"+m.getUrlModulo());
+   //       for (int i = 0; i <m.getTemarioModulo().size() ; i++) {
+   //           System.out.println("\t\t\t|->"+
+   //                   m.getTemarioModulo().get(i).getNombreTemas()
+   //           +"----->" +m.getTemarioModulo().get(i).getUrlTemas());;
+   //       }
+   //       for (int i = 0; i <m.getPdfModulo().size() ; i++) {
+   //           System.out.println("\t\t\t|->"+
+   //                   m.getPdfModulo().get(i).getNombrePDF()
+   //                           +"----->" +m.getPdfModulo().get(i).getUrlPDF());;
+   //       }
+   //   }
 
 
-
+        new Descargar(modulos.get(0).getTemarioModulo().get(0).getUrlTemas(),"C:\\Users\\Wster\\Desktop\\Carpeta de pruebas").descargalo();
     }
 }
