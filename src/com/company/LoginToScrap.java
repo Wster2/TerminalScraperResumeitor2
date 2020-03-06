@@ -126,7 +126,7 @@ public class LoginToScrap extends MetodosScraper{
                 urlRecursos = e.attr("abs:href");
                 String descripcionRecursos = e.text();
                 //System.out.println(urlRecursos);
-                System.out.println(descripcionRecursos);
+                //System.out.println(descripcionRecursos);
             }
         }
 
@@ -139,11 +139,11 @@ public class LoginToScrap extends MetodosScraper{
 
         ArrayList<Modulos> modulos = almacenarModulos();
         for (int i = 0; i <modulos.size() ; i++) {
-            System.out.println();
-            System.out.println("Modulo:");
+         // System.out.println();
+         // System.out.println("Modulo:");
             Modulos modulo =modulos.get(i);
-            System.out.println(modulo.getNombreModulo());
-            System.out.println(modulo.getUrlModulo());
+        // System.out.println(modulo.getNombreModulo());
+        // System.out.println(modulo.getUrlModulo());
 
             for (Element e: irATemarios(modulo.getUrlModulo()).parse().select(cssQuery) ){
                 //Muestra por consola todos los elementos en cuya descripcion aparezca la palabra "Completa"
@@ -151,13 +151,18 @@ public class LoginToScrap extends MetodosScraper{
                 if(e.text().contains("Completa")||e.select("img").attr("src").contains("pdf")) {
                     String urlTemario = e.attr("abs:href");
                     String descripcionTemario = e.text();
-                    System.out.println("\t"+descripcionTemario);
-                    System.out.println("\t"+urlTemario);
-                    modulos.get(i).addTemario(new Temario(descripcionTemario,urlTemario,modulos.get(0).getNombreModulo()));
+              //   System.out.println("\t"+descripcionTemario);
+              //   System.out.println("\t"+urlTemario);
+                    if(e.text().contains("Completa")) {
+                        modulos.get(i).addTemario(new Temario(descripcionTemario, urlTemario, modulos.get(i).getNombreModulo()));
+                    }
+                    if(e.select("img").attr("src").contains("pdf")){
+                        modulos.get(i).addPdf(new Pdf (descripcionTemario,urlTemario));
+                    }
                 }
             }
         }
-
+        System.out.println("Finalizado la lista actualizada");
         return modulos;
     }
 
