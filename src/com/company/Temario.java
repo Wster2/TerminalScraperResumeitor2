@@ -3,36 +3,15 @@ package com.company;
 public class Temario {
 
 
-    private String NombreEvaluacion;
-    private String UrlEvalucion;
-
     private String NombreTemas;
     private String UrlTemas;
 
     private String NombreModulo;
 
-    public Temario(String nombreEvaluacion, String urlEvalucion, String nombreTemas, String urlTemas, String nombreModulo) {
-        NombreEvaluacion = nombreEvaluacion;
-        UrlEvalucion = urlEvalucion;
+    public Temario(String nombreTemas, String urlTemas, String nombreModulo) {
         NombreTemas = nombreTemas;
         UrlTemas = urlTemas;
         NombreModulo = nombreModulo;
-    }
-
-    public String getNombreEvaluacion() {
-        return NombreEvaluacion;
-    }
-
-    public void setNombreEvaluacion(String nombreEvaluacion) {
-        NombreEvaluacion = nombreEvaluacion;
-    }
-
-    public String getUrlEvalucion() {
-        return UrlEvalucion;
-    }
-
-    public void setUrlEvalucion(String urlEvalucion) {
-        UrlEvalucion = urlEvalucion;
     }
 
     public String getNombreTemas() {
